@@ -22,7 +22,7 @@ void test_LU_plein(matrix a, rvec b, rvec& x){
 
   // display_plein(produit_mat_mat_plein(l,u)) ;
 
-  resysLin_plein(l,u,b,x) ;
+  resysLin_plein(l, u, b, x) ;
   // cout << "Vecteur solution X = " << endl ;
   // for (int i = 0; i < a.size(); i++) {
   //   cout << x[i] << endl ;

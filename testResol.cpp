@@ -15,6 +15,8 @@ using std::endl ;
 
 int main() {
 
+  /*
+
   // Filling the testMatrix 
   matrix mat(4,rvec(4, 0.)) ;
 
@@ -57,13 +59,8 @@ int main() {
   cout << endl ;
 
   display_plein(L) ;
+  */
 
-
-
-
-
-
-  /*
 
   uint n, m ;
 
@@ -105,20 +102,20 @@ int main() {
   clock_t t1, t2 ;
 
   ofstream of ;
-  ofstream off ;
-  ofstream offf ;
-  ofstream offff ;
-  ofstream offfff ;
-  ofstream offffff ;
+  // ofstream off ;
+  // ofstream offf ;
+  // ofstream offff ;
+  // ofstream offfff ;
+  // ofstream offffff ;
 
-  of.open("residu2_jacobi.dat") ;
-  off.open("residuinf_jacobi.dat") ;
+  of.open("time.dat") ;
+  // off.open("residuinf_jacobi.dat") ;
   // offf.open(".dat") ;
   // offff.open(".dat") ;
   // offfff.open(".dat") ;
   // offffff.open(".dat") ;
 
-  for (uint i = 1u ; i < 8 ; i++) {
+  for (uint i = 1u ; i < 5 ; i++) {
 
     n = pow(2,i) ;
     m = pow(2,i) ;
@@ -128,17 +125,17 @@ int main() {
     matrix q ((n-1)*(m-1), rvec((n-1)*(m-1),0.)) ;
 
     remplissage_A_plein(q,alpha,n,m,h,k) ;
-    cout << "remplissage de A fini" << endl ;
+    cout << "Remplissage de A fini " << endl ;
 
     rvec r (q.size(),0.) ;
     rvec x (q.size(),0.) ;
 
     second_membre (n, m, a, b, h, k, alpha, r) ;
-    cout<<"remplissage de B fini"<<endl;
+    cout << "Remplissage de B fini " << endl ;
 
     t1 = clock() ;
 
-    //test_LU_plein(a,b,x) ; //
+    test_LU_plein(q, r, x) ;
     //
     // test_LU_plein_adaptee(a,b,x,m) ; //
     //
@@ -161,16 +158,16 @@ int main() {
     temps = (float)(t2-t1)/CLOCKS_PER_SEC ;
     cout << "test fini" << endl ;
 
-    // cout << "Temps = " << temps << endl ;
-    // of << log10(n) << " " << log10(temps) << endl ;
+    cout << "Temps = " << temps << endl ;
+    of << log10(n) << " " << log10(temps) << endl ;
 
-    double residu2 = residu_2_plein(r,q,x) ;
-    cout << "Residu 2 plein = " << residu2 << endl ;
-    of << log10(n) << " " << log10(residu2) << endl ;
+    // double residu2 = residu_2_plein(r,q,x) ;
+    // cout << "Residu 2 plein = " << residu2 << endl ;
+    // of << log10(n) << " " << log10(residu2) << endl ;
 
-    double residuinf = residu_inf_plein(r,q,x) ;
-    cout << "Residu inf plein = " << residuinf << endl ;
-    off << log10(n) << " " << log10(residuinf) << endl ;
+    // double residuinf = residu_inf_plein(r,q,x) ;
+    // cout << "Residu inf plein = " << residuinf << endl ;
+    // off << log10(n) << " " << log10(residuinf) << endl ;
 
     // double erreur2 = erreur_2(n,m,h,k,x);
     // cout << "erreur_2 = " << erreur2 << endl ;
@@ -187,13 +184,13 @@ int main() {
   }
 
    of.close() ;
-   off.close() ;
+   // off.close() ;
    // offf.close() ;
    // offff.close() ;
    // offfff.close() ;
    // offffff.close() ;
 
-   */
+   
 
   return 0;
 }
