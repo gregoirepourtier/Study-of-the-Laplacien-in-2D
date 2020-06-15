@@ -167,9 +167,11 @@ double sol(double x, double y){
 double f (double x, double y, double alpha){
   double res;
   res = (pow(x,2) + pow(y,2) + alpha)*sin(x*y);
+  return res ;
 }
 
 double g (double x, double y){
   double res;
   res=sin(x*y);
+  return res ;
 }

@@ -115,7 +115,7 @@ int main() {
   // offfff.open(".dat") ;
   // offffff.open(".dat") ;
 
-  for (uint i = 1u ; i < 5 ; i++) {
+  for (uint i = 1u ; i < 8 ; i++) {
 
     n = pow(2,i) ;
     m = pow(2,i) ;
