@@ -38,11 +38,8 @@ void test_LU_plein(matrix a, rvec b, rvec& x){
 void test_LU_plein_adaptee(matrix a, rvec b, rvec& x, int m){
   matrix l (a.size(), rvec(a.size(),0.));
   matrix u (a.size(), rvec(a.size(),0.));
-
-  affectation_pleine(a,u) ;
-  affectation_pleine_id(l) ;
   
-  Decomp_LU_adapte_plein (u,l,m) ;
+  Decomp_LU_adapte_plein (a, u,l,m) ;
 
   // cout << "Affichage de la matrice U : " << endl ;
   // display_plein(u) ;
